@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<MDG.Technology version="1.0">
+	<Documentation id="P1BuildLogic" name="P1BuildLogic" version="0.0" notes="Specialised elements and relationships to build user feedback centric story maps" />
+	<UMLProfiles>
+		<UMLProfile profiletype="uml2">
+			<Documentation id="P1BuildLogic" name="P1BuildLogic" version="0.0" notes="P1BuildLogic" />
+			<Content>
+				<Stereotypes>
+					<!-- metatype is the default name the element gets when created on a diagram" -->
+					<!-- generalizes and baseStereotypes can be used where inheriting from non-UML stereotypes" -->
+					<Stereotype name="BusinessServiceVersion" metatype="Business Service Version" notes="" cx="0" cy="0" bgcolor="11331812" fontcolor="-1" bordercolor="-1" borderwidth="1" hideicon="0" generalizes="ArchiMate3::ArchiMate_BusinessService" baseStereotypes="ArchiMate3::ArchiMate_BusinessService">
+						<stereotypedrelationships>
+							<stereotypedrelationship stereotype="P1BuildLogic::Versions" constraint="ArchiMate3::ArchiMate_BusinessService"/>
+						</stereotypedrelationships>
+						<AppliesTo>
+							<Apply type="Activity">
+								<Property name="isReadOnly" value="false"/>
+								<Property name="isSingleExecution" value=""/>
+								<Property name="parameterName" value=""/>
+								<Property name="postcondition" value=""/>
+								<Property name="precondition" value=""/>
+							</Apply>
+						</AppliesTo>
+						<TaggedValues>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="BusinessFunctionVersion" metatype="BusinessFunctionVersion" notes="" cx="0" cy="0" bgcolor="11331812" fontcolor="-1" bordercolor="-1" borderwidth="1" hideicon="0" generalizes="ArchiMate3::ArchiMate_BusinessFunction" baseStereotypes="ArchiMate3::ArchiMate_BusinessFunction">
+						<stereotypedrelationships>
+							<stereotypedrelationship stereotype="P1BuildLogic::Versions" constraint="ArchiMate3::ArchiMate_BusinessFunction"/>
+							<stereotypedrelationship stereotype="ArchiMate3::ArchiMate_Realization" constraint="P1BuildLogic::BusinessServiceVersion"/>
+						</stereotypedrelationships>
+						<AppliesTo>
+							<Apply type="Activity">
+								<Property name="isReadOnly" value="false"/>
+								<Property name="isSingleExecution" value=""/>
+								<Property name="parameterName" value=""/>
+								<Property name="postcondition" value=""/>
+								<Property name="precondition" value=""/>
+							</Apply>
+						</AppliesTo>
+						<TaggedValues>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="StoryMapTaskVersion" metatype="Story Map Task Version" notes="" cx="0" cy="0" bgcolor="15780034" fontcolor="-1" bordercolor="-1" borderwidth="1" hideicon="0" generalizes="ArchiMate3::ArchiMate_BusinessProcess" baseStereotypes="ArchiMate3::ArchiMate_BusinessProcess">
+						<stereotypedrelationships>
+							<stereotypedrelationship stereotype="P1BuildLogic::Versions" constraint="P1StoryMap::Task"/>
+							<stereotypedrelationship stereotype="ArchiMate3::ArchiMate_Realization" constraint="P1StoryMap::Epic"/>
+						</stereotypedrelationships>
+						<AppliesTo>
+							<Apply type="Activity">
+								<Property name="isReadOnly" value="false"/>
+								<Property name="isSingleExecution" value=""/>
+								<Property name="parameterName" value=""/>
+								<Property name="postcondition" value=""/>
+								<Property name="precondition" value=""/>
+							</Apply>
+						</AppliesTo>
+						<TaggedValues>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="ApplicationServiceVersion" metatype="Application Service Version" notes="" cx="0" cy="0" bgcolor="16773584" fontcolor="-1" bordercolor="-1" borderwidth="1" hideicon="0" generalizes="ArchiMate3::ArchiMate_ApplicationService" baseStereotypes="ArchiMate3::ArchiMate_ApplicationService">
+						<stereotypedrelationships>
+							<stereotypedrelationship stereotype="P1BuildLogic::Versions" constraint="ArchiMate3::ArchiMate_ApplicationService"/>
+							<stereotypedrelationship stereotype="ArchiMate3::ArchiMate_Serving" constraint="P1BuildLogic::StoryMapTaskVersion"/>
+							<stereotypedrelationship stereotype="ArchiMate3::ArchiMate_Serving" constraint="P1BuildLogic::BusinessFunctionVersion"/>
+						</stereotypedrelationships>
+						<AppliesTo>
+							<Apply type="Activity">
+								<Property name="isReadOnly" value="false"/>
+								<Property name="isSingleExecution" value=""/>
+								<Property name="parameterName" value=""/>
+								<Property name="postcondition" value=""/>
+								<Property name="precondition" value=""/>
+							</Apply>
+						</AppliesTo>
+						<TaggedValues>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="ApplicationFunctionVersion" metatype="Application Function Version" notes="" cx="0" cy="0" bgcolor="16773584" fontcolor="-1" bordercolor="-1" borderwidth="1" hideicon="0" generalizes="ArchiMate3::ArchiMate_ApplicationFunction" baseStereotypes="ArchiMate3::ArchiMate_ApplicationFunction">
+						<stereotypedrelationships>
+							<stereotypedrelationship stereotype="P1BuildLogic::Versions" constraint="ArchiMate3::ArchiMate_ApplicationFunction"/>
+							<stereotypedrelationship stereotype="ArchiMate3::ArchiMate_Realization" constraint="P1BuildLogic::ApplicationServiceVersion"/>
+						</stereotypedrelationships>
+						<AppliesTo>
+							<Apply type="Activity">
+								<Property name="isReadOnly" value="false"/>
+								<Property name="isSingleExecution" value=""/>
+								<Property name="parameterName" value=""/>
+								<Property name="postcondition" value=""/>
+								<Property name="precondition" value=""/>
+							</Apply>
+						</AppliesTo>
+						<TaggedValues>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="ComponentVersion" metatype="Component Version" notes="" cx="0" cy="0" bgcolor="16773584" fontcolor="-1" bordercolor="-1" borderwidth="1" hideicon="0" generalizes="ArchiMate3::ArchiMate_ApplicationComponent" baseStereotypes="ArchiMate3::ArchiMate_ApplicationComponent">
+						<stereotypedrelationships>
+							<stereotypedrelationship stereotype="P1BuildLogic::Versions" constraint="ArchiMate3::ArchiMate_ApplicationComponent"/>
+							<stereotypedrelationship stereotype="ArchiMate3::ArchiMate_Assignment" constraint="P1BuildLogic::ComponentVersion"/>
+						</stereotypedrelationships>
+						<AppliesTo>
+							<Apply type="Component">
+								<Property name="_Tag" value="1"/>
+								<Property name="isIndirectlyInstantiated" value="true"/>
+							</Apply>
+						</AppliesTo>
+						<TaggedValues>
+							<!--<Tag name="p1.FQPath" type="" description="" unit="" values="" default=""/>
+							<Tag name="p1.DisplayOrder" type="int" description="" unit="" values="" default="0"/>
+							<Tag name="p1.Est.Ambiguity" type="enumeration" description="" unit="" values="VH,H,M,L,VL" default="M"/ -->
+					
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="TechnologyServiceVersion" metatype="Technology Service Version" notes="" cx="0" cy="0" bgcolor="8510348" fontcolor="-1" bordercolor="-1" borderwidth="1" hideicon="0" generalizes="ArchiMate3::ArchiMate_TechnologyService" baseStereotypes="ArchiMate3::ArchiMate_TechnologyService">
+						<stereotypedrelationships>
+							<stereotypedrelationship stereotype="P1BuildLogic::Versions" constraint="ArchiMate3::ArchiMate_TechnologyService"/>
+							<stereotypedrelationship stereotype="ArchiMate3::ArchiMate_Serving" constraint="P1BuildLogic::ComponentVersion"/>
+						</stereotypedrelationships>
+						<AppliesTo>
+							<Apply type="Activity">
+								<Property name="isReadOnly" value="false"/>
+								<Property name="isSingleExecution" value=""/>
+								<Property name="parameterName" value=""/>
+								<Property name="postcondition" value=""/>
+								<Property name="precondition" value=""/>
+							</Apply>
+						</AppliesTo>
+						<TaggedValues>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="Versions"  metatype="Versions" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Association">
+								<Property name="compositionKind" value="none"/>
+								<Property name="direction" value="Unspecified"/>
+							</Apply>s
+						</AppliesTo>
+					</Stereotype>
+				</Stereotypes>
+			</Content>
+		</UMLProfile>
+	</UMLProfiles>
+	<UIToolboxes>
+		<UMLProfile profiletype="uml2">
+			<Documentation id="" name="P1 Build Logic" version="0.0" notes="P1 Build Logic" />
+			<Content>
+				<Stereotypes>
+					<Stereotype name="Build Logic" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage" />
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="P1BuildLogic::BusinessServiceVersion" type="" description="" unit="" values="" default="Business Service Version" />
+						<Tag name="P1BuildLogic::BusinessFunctionVersion" type="" description="" unit="" values="" default="Business Function Version" />
+						<Tag name="P1BuildLogic::StoryMapTaskVersion" type="" description="" unit="" values="" default="Story Map Task Version" />
+						<Tag name="P1BuildLogic::ApplicationServiceVersion" type="" description="" unit="" values="" default="Application Service Version" />
+						<Tag name="P1BuildLogic::ApplicationFunctionVersion" type="" description="" unit="" values="" default="Application Function Version" />
+						<Tag name="P1BuildLogic::ComponentVersion" type="" description="" unit="" values="" default="Component Version" />
+						<Tag name="P1BuildLogic::TechnologyServiceVersion" type="" description="" unit="" values="" default="Technology Version" />							
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="Connectors" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage" />
+						</AppliesTo>
+						<TaggedValues> 
+							<Tag name="P1BuildLogic::Versions(UML::Association)" type="" description="" unit="" values="" default="Versions"/>
+
+							<Tag name="UML::Realization" type="" description="" unit="" values="" default="Realisation" />
+							<Tag name="UML::Composition" type="" description="" unit="" values="" default="Composition" />
+							<Tag name="UML::TraceLink" type="" description="" unit="" values="" default="Trace" />
+							<Tag name="ArchiMate3::ArchiMate_Assignment" type="" description="" unit="" values="" default="Assignment" />
+							<Tag name="ArchiMate3::ArchiMate_Serving" type="" description="" unit="" values="" default="Serving" />
+						</TaggedValues>
+					</Stereotype>
+				</Stereotypes>
+				<TaggedValueTypes />
+				<ViewDefinitions />
+				<Metamodel />
+			</Content>
+		</UMLProfile>
+	</UIToolboxes>
+	<DiagramProfile>
+		<UMLProfile profiletype="uml2">
+			<Documentation id="P1BuildLogic" name="Build Logic Diagrams" version="1.0" notes="Build Logic Diagrams" />
+			<Content>
+				<Stereotypes>
+					<Stereotype name="Build Logic" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Diagram_Class">
+								<Property name="alias" value="Build Logic" />
+								<Property name="toolbox" value="P1BuildLogic" />
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+				</Stereotypes>
+			</Content>
+		</UMLProfile>
+	</DiagramProfile>
+</MDG.Technology>

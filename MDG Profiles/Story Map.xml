@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<MDG.Technology version="1.0">
+	<Documentation id="P1StoryMap" name="P1StoryMap" version="0.0" notes="Specialised elements and relationships to build user feedback centric story maps" />
+	<UMLProfiles>
+		<UMLProfile profiletype="uml2">
+			<Documentation id="P1StoryMap" name="P1StoryMap" version="0.0" notes="P1StoryMap" />
+			<Content>
+				<Stereotypes>
+					<!-- metatype is the default name the element gets when created on a diagram" -->
+					<!-- generalizes and baseStereotypes can be used where inheriting from non-UML stereotypes" -->
+					<Stereotype name="Activity" metatype="Story Map Activity" alias="Story Map Activity" notes="" cx="0" cy="0" bgcolor="12845031" fontcolor="-1" bordercolor="-1" borderwidth="1" hideicon="0" generalizes="ArchiMate3::ArchiMate_BusinessProcess" baseStereotypes="ArchiMate3::ArchiMate_BusinessProcess">
+						<AppliesTo>
+							<Apply type="Activity" />
+						</AppliesTo>
+					</Stereotype>					
+					<Stereotype name="Task" metatype="Story Map Task"  notes="Task" cx="0" cy="0" bgcolor="10810610" fontcolor="-1" bordercolor="-1" borderwidth="1" hideicon="0" generalizes="ArchiMate3::ArchiMate_BusinessProcess" baseStereotypes="ArchiMate3::ArchiMate_BusinessProcess">
+						<stereotypedrelationships>
+							<stereotypedrelationship stereotype="UML::Composition" constraint="P1StoryMap::Task"/>
+						</stereotypedrelationships>
+						<AppliesTo>
+							<Apply type="Activity" />
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="Epic" metatype="Epic" cx="0" cy="0" bgcolor="16632282" fontcolor="-1" bordercolor="-1" borderwidth="1" hideicon="0">
+						<stereotypedrelationships>
+							<stereotypedrelationship stereotype="UML::Composition" constraint="P1StoryMap::Task"/>
+							<stereotypedrelationship stereotype="UML::Composition" constraint="P1StoryMap::UserStory"/>
+						</stereotypedrelationships>
+						<AppliesTo>
+							<Apply type="Requirement" />
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="Version" type="" description="" unit="" values="" default="0" />
+							<Tag name="Sprint" type="int" description="" unit="" values="" default="0" />
+							<Tag name="Priority" type="" description="" unit="" values="VH,H,M,L,VL" default="M" />
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="User Story" metatype="User Story" cx="0" cy="0" bgcolor="16773584" fontcolor="-1" bordercolor="-1" borderwidth="1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Requirement" />
+						</AppliesTo>
+					</Stereotype>
+				</Stereotypes>
+			</Content>
+		</UMLProfile>
+	</UMLProfiles>
+	<UIToolboxes>
+		<UMLProfile profiletype="uml2">
+			<Documentation id="P1StoryMap" name="P1 Story Map" version="0.0" notes="P1 Story Map" />
+			<Content>
+				<Stereotypes>
+					<Stereotype name="Story Map" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage" />
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="P1StoryMap::Activity" type="" description="" unit="" values="" default="Story Map Activity" />
+							<Tag name="P1StoryMap::Task" type="" description="" unit="" values="" default="Story Map Task" />
+							<Tag name="P1StoryMap::Epic" type="" description="" unit="" values="" default="Epic" />
+							<Tag name="P1StoryMap::UserStory" type="" description="" unit="" values="" default="User Story" />
+						<!-- </TaggedValues>
+					</Stereotype>
+					<Stereotype name="Connectors" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage" />
+						</AppliesTo>
+						<TaggedValues> -->
+							<Tag name="UML::Realization" type="" description="" unit="" values="" default="Realisation" />
+							<Tag name="UML::Composition" type="" description="" unit="" values="" default="Composition" />
+							<Tag name="UML::TraceLink" type="" description="" unit="" values="" default="Trace" />
+						</TaggedValues>
+					</Stereotype>
+				</Stereotypes>
+				<TaggedValueTypes />
+				<ViewDefinitions />
+				<Metamodel />
+			</Content>
+		</UMLProfile>
+	</UIToolboxes>
+	<DiagramProfile>
+		<UMLProfile profiletype="uml2">
+			<Documentation id="P1StoryMap" name="P1 Diagrams" version="1.0" notes="P1 Diagrams" />
+			<Content>
+				<Stereotypes>
+					<Stereotype name="Story Map" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Diagram_Class">
+								<Property name="alias" value="Story Map" />
+								<Property name="toolbox" value="P1StoryMap" />
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+				</Stereotypes>
+			</Content>
+		</UMLProfile>
+	</DiagramProfile>
+</MDG.Technology>
