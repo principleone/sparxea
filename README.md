@@ -1,9 +1,9 @@
-#Sparx Enterprise Architect helpers
+# Sparx Enterprise Architect helpers
 
 Useful scripts and our own profiles for custom notations and extensions.
 
 
-#P1 Automation Scripts
+# P1 Automation Scripts
 
 Sparx EA Browser and Diagram scripts for automating certain tasks using P1 notation and structure (e.g. update a diagram or create package structures). 
 
