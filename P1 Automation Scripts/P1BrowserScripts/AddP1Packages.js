@@ -1,5 +1,5 @@
 !INC Local Scripts.EAConstants-JScript
-!INC P1Core.P1Core
+!INC P1Core.P1Solution
  
 function OnProjectBrowserScript()
 {
