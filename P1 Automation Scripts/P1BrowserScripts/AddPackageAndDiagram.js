@@ -77,4 +77,4 @@ function OnProjectBrowserScript()
 }
 
 
-
+OnProjectBrowserScript();

@@ -14,7 +14,7 @@
 function getPackages(rootGuid)
 {
 	// object to store packages
-	let rootPackages = {
+	var rootPackages = {
 		arcModelPkg: null,
 		arcViewPkg : null,
 		tracePkg: null, // left blank

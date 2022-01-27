@@ -1,5 +1,6 @@
 !INC Local Scripts.EAConstants-JScript
 !INC P1Core.P1Core
+!INC P1Core.P1Solution
 !INC P1Core.P1Delivery
  /* 
  * Script Name:
@@ -9,8 +10,10 @@
  */
 
 /*
- * Project Browser Script main function
+ * There is no longer a single subsystem view root package with the UKTL structure. Have defaulted the control object 
+ * subsystem view root package in the test model to that for the DCMS system. 
  */
+ 
 function OnProjectBrowserScript()
 {
 	// Get the type of element selected in the Project Browser
@@ -38,9 +41,11 @@ function OnProjectBrowserScript()
 					SubsystemA:cmp1,cmp2,cmp3|SubsystemB|SubsystemC:cmpA
 					
 					*/
-					var SSInput;
-					SSInupt = Session.Input("Please Enter Sub System Name - e.g. SubsystemA:cmp1,cmp2,cmp3|SubsystemB|SubsystemC:cmpA");
+					var SSInput = '';
+					SSInput = Session.Input("Please Enter Sub System Name - e.g. SubsystemA:cmp1,cmp2,cmp3|SubsystemB|SubsystemC:cmpA");
 					var ssArr = SSInput.split("|");
+					
+					
 					var size = ssArr.length;
 					
 					for (var i = 0; i<size; i++) 
@@ -54,7 +59,8 @@ function OnProjectBrowserScript()
 				case "Subsystem":
 				{
 					//add the child subsystem element in the right place
-					var cmpName = Session.Input("Please Enter Component Name");
+					var cmpName = ''; 
+					cmpName = Session.Input("Please Enter Component Name");
 					
 					let cmpArr = cmpName.split(",");
 					var size = cmpArr.length;
