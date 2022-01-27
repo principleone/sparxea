@@ -63,7 +63,7 @@ function addSubSystem(ssName,systemElement,cmpList)
 	sysElement = systemElement;
 	
 	// find the right package to add the subsystem element
-	ssPackageGUID = p1GetTv(sysElement,p1.ModelStructure.ModelAbstraction);
+	var ssPackageGUID = p1GetTv(sysElement,'p1.ModelStructure.ModelAbstraction').Value;
 	systemSSPackage = Repository.GetPackageByGuid(ssPackageGUID);
 	
 	if(systemSSPackage)
@@ -335,7 +335,7 @@ function createTraceDiag(vwPckg,theEl)
 	tracePicture = createDiagAndTraceElement(viewPckg,theElement,tgtPckg,"Subsystem Trace Index","p1 Diagrams v3::Trace");
 		
 	//add tag to parent object
-	basetv = p1GetTv(elemetheElementnt,"p1.ModelStructure.IndexView");
+	basetv = p1GetTv(theElement,"p1.ModelStructure.IndexView");
 	basetv.Value = tracePicture.DiagramGUID;
 	basetv.Update();
 	
